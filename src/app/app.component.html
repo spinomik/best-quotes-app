@@ -2,21 +2,10 @@
 
 <div class="container q-container">
   <!--Dodawanie cytatu-->
-  <button class="btn-floating teal add-button" (click)="editModeOn()">
+  <button class="btn-floating teal add-button">
     <i class="material-icons">add</i>
   </button>
-  <div class="row edit-row" [class.drawer]="showform">
-    <div class="input-field col s4">
-      <input type="text" placeholder="Autor" [(ngModel)]="quotation.author" />
-    </div>
-    <div class="input-field col s6">
-      <input type="text" placeholder="Cytat" [(ngModel)]="quotation.sentence" />
-    </div>
-    <div class="input-field col s2">
-      <button class="btn small" (click)="addQuotation()"
-        [disabled]="quotation.author === '' || quotation.sentence === ''">Dodaj</button>
-    </div>
-  </div>
+  <app-form (newQuotation)="onNewQuotation($event)"></app-form>
   <!-- Koniec dodawanie cytatu -->
 
   <div class="row">
@@ -47,11 +36,9 @@
     </div>
     <!-- Koniec lista cytatów -->
 
-    <!-- Sekcja rankigów -->
     <div class="col s4">
       <app-ranking [quotes]="bestQuotes()" title="Najlepsze"></app-ranking>
       <app-ranking [quotes]="worstQuotes()" title="Najgorsze"></app-ranking>
     </div>
-    <!-- Sekcja rankigów -->
   </div>
 </div>

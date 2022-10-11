@@ -9,33 +9,12 @@ import { Quotation } from './models/quotation';
 })
 export class AppComponent {
 
-  showform: boolean;
   quotes: Quotation[];
-  quotation: Quotation;
   navbarTitle: string;
 
   constructor() {
     this.navbarTitle = 'Najlepsze cytaty';
-    this.showform = false;
     this.quotes = QUOTES;
-    this.quotation = {
-      author: '',
-      sentence: '',
-      votes: 0,
-    }
-  }
-
-  editModeOn() {
-    this.showform = !this.showform;
-  }
-
-  addQuotation() {
-    this.quotes.unshift(this.quotation);
-    this.quotation = {
-      author: '',
-      sentence: '',
-      votes: 0
-    }
   }
 
   addVote(quotation: Quotation, vote: number) {
@@ -48,6 +27,11 @@ export class AppComponent {
 
   worstQuotes(){
     return this.quotes.filter(quotes => quotes.votes < 0)
+  }
+
+    
+  onNewQuotation(quotation: Quotation){
+    this.quotes.unshift(quotation);
   }
 
 }
