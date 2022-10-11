@@ -13,7 +13,7 @@ export class FormComponent {
   quotation: Quotation;
 
   constructor() { 
-    this.showform = true;
+    this.showform = false;
     this.quotation = {
       author: '',
       sentence: '',
