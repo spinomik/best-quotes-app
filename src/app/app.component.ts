@@ -21,16 +21,16 @@ export class AppComponent {
     quotation.votes += vote;
   }
 
-  bestQuotes(){
+  bestQuotes() {
     return this.quotes.filter(quotes => quotes.votes > 0)
   }
 
-  worstQuotes(){
+  worstQuotes() {
     return this.quotes.filter(quotes => quotes.votes < 0)
   }
 
-    
-  onNewQuotation(quotation: Quotation){
+
+  onNewQuotation(quotation: Quotation) {
     this.quotes.unshift(quotation);
   }
 

@@ -12,7 +12,7 @@ export class FormComponent {
   showform: boolean;
   quotation: Quotation;
 
-  constructor() { 
+  constructor() {
     this.showform = false;
     this.quotation = {
       author: '',
@@ -24,7 +24,7 @@ export class FormComponent {
   editModeOn() {
     this.showform = !this.showform;
   }
-  
+
   addQuotation() {
     this.newQuotation.emit(this.quotation);
     this.quotation = {

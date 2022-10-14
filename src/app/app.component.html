@@ -8,28 +8,7 @@
   <div class="row">
     <!-- Lista cytatów -->
     <div class="col s8">
-      <div class="row">
-        <div class="col s12">
-          <div class="card teal hoverable" *ngFor="let quotation of quotes; let odd = odd"
-            [ngClass]="odd ? 'accent-5' : 'accent-4'">
-            <div class="card-content white-text">
-              <span class="card-title">
-                {{quotation.sentence}}
-              </span>
-              {{quotation.author}}
-            </div>
-            <div class="card-action right-align">
-              <span class="badge grey darken-2 left white-text">{{quotation.votes}}</span>
-              <app-button (clickButton)="addVote(quotation, +1)" customClasses="btn blue mr-5">
-                <i class="material-icons">exposure_plus_1</i>
-              </app-button>
-              <app-button (clickButton)="addVote(quotation, -1)" customClasses="btn brown">
-                <i class="material-icons">exposure_neg_1</i>
-              </app-button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-list [quotes]="quotes" (vote) ="addVote($event.quotation, $event.vote)"></app-list>
     </div>
     <!-- Koniec lista cytatów -->
 
